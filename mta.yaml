@@ -1,0 +1,57 @@
+_schema-version: "3.2"
+ID: yt_fiori_project
+version: 0.0.1
+modules:
+- name: yt_fiori_project-destination-content
+  type: com.sap.application.content
+  requires:
+  - name: yt_fiori_project-destination-service
+    parameters:
+      content-target: true
+  - name: yt_fiori_project_html_repo_host
+    parameters:
+      service-key:
+        name: yt_fiori_project_html_repo_host-key
+  - name: uaa_yt_fiori_project
+    parameters:
+      service-key:
+        name: uaa_yt_fiori_project-key
+  parameters:
+    content:
+      instance:
+        destinations:
+        - Name: YT_Training_yt_fiori_project_html_repo_host
+          ServiceInstanceName: yt_fiori_project-html5-app-host-service
+          ServiceKeyName: yt_fiori_project_html_repo_host-key
+          sap.cloud.service: YT_Training
+        - Authentication: OAuth2UserTokenExchange
+          Name: YT_Training_uaa_yt_fiori_project
+          ServiceInstanceName: yt_fiori_project-xsuaa-service
+          ServiceKeyName: uaa_yt_fiori_project-key
+          sap.cloud.service: YT_Training
+        existing_destinations_policy: ignore
+  build-parameters:
+    no-source: true
+resources:
+- name: yt_fiori_project-destination-service
+  type: org.cloudfoundry.managed-service
+  parameters:
+    config:
+      HTML5Runtime_enabled: true
+      version: 1.0.0
+    service: destination
+    service-name: yt_fiori_project-destination-service
+    service-plan: lite
+- name: yt_fiori_project_html_repo_host
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-name: yt_fiori_project-html5-app-host-service
+    service-plan: app-host
+- name: uaa_yt_fiori_project
+  type: org.cloudfoundry.managed-service
+  parameters:
+    path: ./xs-security.json
+    service: xsuaa
+    service-name: yt_fiori_project-xsuaa-service
+    service-plan: application

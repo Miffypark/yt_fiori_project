@@ -1,0 +1,12 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+    
+    
+    
+    <edmx:Reference Uri="/sap/opu/odata/sap/ZOVW_FLIGHTBOOKING_SRV/$metadata">
+        <edmx:Include Namespace="ZOVW_FLIGHTBOOKING_SRV" Alias="SAP"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="local">
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

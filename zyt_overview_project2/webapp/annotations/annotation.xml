@@ -24,8 +24,8 @@
                             <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
                         </Record>
                         <Record Type="UI.DataField" >
-                           <PropertyValue Property="Value" Path="DepartureCountry"/>
-                           <PropertyValue Property="Label" String="Depurture Country"/>
+                           <PropertyValue Property="Value" Path="Route"/>
+                           <PropertyValue Property="Label" String="Route"/>
                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/>
                         </Record>
                         <Record Type="UI.DataField" >
